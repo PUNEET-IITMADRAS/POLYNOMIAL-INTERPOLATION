@@ -1,0 +1,18 @@
+# POLYNOMIAL-INTERPOLATION
+Polynomial interpolation consisting of determining a unique (n − 1)th order polynomial that fits n data points.
+points=[200,0.746; 250,0.675;300,0.616; 400,0.525;500,0.457]; #example points
+x=points(:,1)
+y=points(:,2)
+plot(x,y,'o')
+hold on
+x=x/100
+l=[1;1;1;1;1]
+val=[x.^4 x.^3 x.^2 x l]
+a=val\y
+%t=[[2:0.5:5.50]
+s=a(1)*x.^4+a(2)*x.^3+a(3)*x.^2+a(4)*x+a(5)
+plot(x*100,s,'--')
+legend('linear fit','calculated solution','polynomial fit')
+xlabel('x')
+ylabel('y')
+title('Polynomial Interpolation Plot')
